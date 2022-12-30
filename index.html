@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+  <style>
+    body {
+      text-align: center;
+      font-size: 60px;
+      background-color: #333;
+      color: white;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock"></div>
+  <script>
+    function updateClock() {
+      // Get the current time
+      var now = new Date();
+
+      // Get the hours, minutes, and seconds from the current time
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+
+      // Format the hours, minutes, and seconds
+      if (hours < 10) {
+        hours = "0" + hours;
+      }
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      }
+      if (seconds < 10) {
+        seconds = "0" + seconds;
+      }
+
+      // Build the clock display string
+      var clockStr = hours + ":" + minutes + ":" + seconds;
+
+      // Set the text of the clock element to the clock display string
+      document.getElementById("clock").textContent = clockStr;
+    }
+
+    // Update the clock every 1 second
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
